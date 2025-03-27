@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h:form>
+		<p:messages />
+
+		<p:dataTable value="#{jogadaBean.jogadas}" var="jogada">
+			<p:column headerText="ID">#{jogada.id}</p:column>
+			<p:column headerText="Jogador 1">#{jogada.jogador1}</p:column>
+			<p:column headerText="Jogador 2">#{jogada.jogador2}</p:column>
+			<p:column headerText="Jogada 1">#{jogada.jogada1}</p:column>
+			<p:column headerText="Jogada 2">#{jogada.jogada2}</p:column>
+			<p:column headerText="Resultado">#{jogada.resultado}</p:column>
+			<p:column headerText="Data">#{jogada.data}</p:column>
+			<p:column headerText="Ações">
+				<p:commandButton value="Excluir"
+					action="#{jogadaBean.excluir(jogada.id)}" update="@form" />
+			</p:column>
+		</p:dataTable>
+
+		<p:button value="Nova Jogada" outcome="index.xhtml" />
+	</h:form>
+</body>
+</html>
